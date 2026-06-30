@@ -2494,6 +2494,10 @@ export default function ChatPage() {
         value: item.value,
       }),
     );
+    const userMessageAnchorsConfig = {
+      ...defaultConfig.theme.bubbleList.userMessageAnchors,
+      variant: "navigator" as const,
+    };
 
     // leftHeader: whole-section render wins, otherwise partial merge {logo, title}.
     const mergedLeftHeader: any =
@@ -2518,6 +2522,10 @@ export default function ChatPage() {
         ...defaultConfig.theme,
         darkMode: isDark,
         ...(extColorPrimary ? { colorPrimary: extColorPrimary } : {}),
+        bubbleList: {
+          ...defaultConfig.theme.bubbleList,
+          userMessageAnchors: userMessageAnchorsConfig,
+        },
         leftHeader: mergedLeftHeader,
         rightHeader: (
           <>
